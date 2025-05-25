@@ -2,19 +2,20 @@
 Calculating possible resistor networks from a given set of base resistors
 
 
-## ResNet object
+### Object `ResNet`
 - Recursively defines series / parallel combinations of resistors
-- Defines binary operators `+` and `|` to combine resistors in series and parallel.
+- Implements binary operators `+` and `|` to combine resistors in series and parallel.
 - Calculates equivalent value
 - Implements `draw()` to draw as ascii-art.
 ```
-━1Ω━┳━━━━━━1Ω━━━━━━┳
-    ┗━3Ω━━3Ω━┳━5Ω━┳┛
-             ┗━6Ω━┛
-Equivalent value: 1.897196261682243Ω
+S = ((R(2) | (R(2) + (R(1) |  R(2) + R(3))))+R(1))
+
+┳━━━━━━2Ω━━━━━━┳━1Ω━
+┗━2Ω━┳━━━1Ω━━━┳┛
+     ┗━2Ω━━3Ω━┛
 ```
 
 
-## get_combinations function
+### function `get_combinations`
 - Enumerates all possible combinations for a given set of resistors.
 
